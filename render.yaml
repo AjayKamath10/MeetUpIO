@@ -13,7 +13,7 @@ services:
       - key: DEBUG
         value: false
       - key: CORS_ORIGINS
-        value: '["https://meet-up-io-git-main-ajs-projects-09f3223e.vercel.app", "http://localhost:3000"]'
+        value: '["https://meet-up-dr1xe9r85-ajs-projects-09f3223e.vercel.app", "http://localhost:3000"]'
       - key: PROJECT_NAME
         value: "Midway API"
 
