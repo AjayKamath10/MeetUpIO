@@ -5,7 +5,7 @@ import { useQuery, useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { parseAsUTC } from '@/lib/date-utils';
-import { Calendar, MapPin, Users, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Users, CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -26,6 +26,7 @@ export default function EventPage({ params }: { params: { slug: string } }) {
     const [location, setLocation] = useState('');
     const [availabilities, setAvailabilities] = useState<Availability[]>([]);
     const [hasJoined, setHasJoined] = useState(false);
+    const [showTimeSlotError, setShowTimeSlotError] = useState(false);
 
     const { data: event, isLoading } = useQuery({
         queryKey: ['event', params.slug],
@@ -53,7 +54,7 @@ export default function EventPage({ params }: { params: { slug: string } }) {
         e.preventDefault();
 
         if (availabilities.length === 0) {
-            alert('Please select at least one time slot');
+            setShowTimeSlotError(true);
             return;
         }
 
@@ -66,6 +67,13 @@ export default function EventPage({ params }: { params: { slug: string } }) {
 
         joinMutation.mutate(participantData);
     };
+
+    // Clear error when user selects time slots
+    useEffect(() => {
+        if (availabilities.length > 0) {
+            setShowTimeSlotError(false);
+        }
+    }, [availabilities]);
 
     if (isLoading) {
         return (
@@ -192,6 +200,21 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                                     windowEnd={event.window_end}
                                     onSelectionChange={setAvailabilities}
                                 />
+
+                                {/* Modern error message */}
+                                {showTimeSlotError && (
+                                    <div className="mt-3 p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900 rounded-lg flex items-start gap-2 animate-in slide-in-from-top-2 duration-300">
+                                        <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                                        <div className="flex-1">
+                                            <p className="text-sm font-medium text-red-800 dark:text-red-300">
+                                                Please select at least one time slot
+                                            </p>
+                                            <p className="text-xs text-red-600 dark:text-red-400 mt-1">
+                                                Click on the time slots above to mark your availability
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             <Button

@@ -11,9 +11,10 @@ interface CustomDateTimePickerProps {
     date: Date | undefined
     setDate: (date: Date | undefined) => void
     label?: string
+    minDateTime?: Date // Minimum selectable date/time
 }
 
-export function CustomDateTimePicker({ date, setDate, label }: CustomDateTimePickerProps) {
+export function CustomDateTimePicker({ date, setDate, label, minDateTime }: CustomDateTimePickerProps) {
     const [currentMonth, setCurrentMonth] = React.useState(new Date())
 
     // Initialize with current time rounded to nearest 30 minutes
@@ -31,8 +32,24 @@ export function CustomDateTimePicker({ date, setDate, label }: CustomDateTimePic
 
     const [selectedTime, setSelectedTime] = React.useState(getCurrentTime())
 
+    // Convert 12-hour time to 24-hour for Date object - defined early for use in getAvailableTimeSlots
+    const parseTime12to24 = React.useCallback((time12: string) => {
+        const [time, period] = time12.split(' ')
+        const [hourStr, minuteStr] = time.split(':')
+        let hours = parseInt(hourStr)
+        const minutes = parseInt(minuteStr)
+
+        if (period === 'PM' && hours !== 12) {
+            hours += 12
+        } else if (period === 'AM' && hours === 12) {
+            hours = 0
+        }
+
+        return { hours, minutes }
+    }, [])
+
     // Generate time slots in 12-hour format
-    const timeSlots = React.useMemo(() => {
+    const generateTimeSlots = () => {
         const slots = []
         for (let i = 0; i < 24; i++) {
             for (let j = 0; j < 60; j += 30) {
@@ -43,7 +60,32 @@ export function CustomDateTimePicker({ date, setDate, label }: CustomDateTimePic
             }
         }
         return slots
-    }, [])
+    }
+
+    const allTimeSlots = React.useMemo(() => generateTimeSlots(), [])
+
+    // Filter time slots based on minDateTime and selected date
+    const getAvailableTimeSlots = React.useCallback((selectedDate: Date | undefined) => {
+        if (!selectedDate || !minDateTime) return allTimeSlots
+
+        // Check if selected date is the same day as minDateTime
+        const isSameDay =
+            selectedDate.getFullYear() === minDateTime.getFullYear() &&
+            selectedDate.getMonth() === minDateTime.getMonth() &&
+            selectedDate.getDate() === minDateTime.getDate()
+
+        if (!isSameDay) return allTimeSlots
+
+        // Filter out times before minDateTime
+        return allTimeSlots.filter(timeStr => {
+            const { hours, minutes } = parseTime12to24(timeStr)
+            const slotMinutes = hours * 60 + minutes
+            const minMinutes = minDateTime.getHours() * 60 + minDateTime.getMinutes()
+            return slotMinutes >= minMinutes
+        })
+    }, [allTimeSlots, minDateTime, parseTime12to24])
+
+    const timeSlots = React.useMemo(() => getAvailableTimeSlots(date), [date, getAvailableTimeSlots])
 
     // Update time when date changes
     React.useEffect(() => {
@@ -100,22 +142,6 @@ export function CustomDateTimePicker({ date, setDate, label }: CustomDateTimePic
             isCurrentMonth: false,
             date: new Date(year, month + 1, i)
         })
-    }
-
-    // Convert 12-hour time to 24-hour for Date object
-    const parseTime12to24 = (time12: string) => {
-        const [time, period] = time12.split(' ')
-        const [hourStr, minuteStr] = time.split(':')
-        let hours = parseInt(hourStr)
-        const minutes = parseInt(minuteStr)
-
-        if (period === 'PM' && hours !== 12) {
-            hours += 12
-        } else if (period === 'AM' && hours === 12) {
-            hours = 0
-        }
-
-        return { hours, minutes }
     }
 
     const handleDateSelect = (selectedDate: Date) => {

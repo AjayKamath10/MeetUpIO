@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { Calendar, MapPin, Sparkles } from 'lucide-react';
@@ -22,6 +22,29 @@ export default function HomePage() {
     const [title, setTitle] = useState('');
     const [windowStart, setWindowStart] = useState<Date | undefined>();
     const [windowEnd, setWindowEnd] = useState<Date | undefined>();
+
+    // Calculate minimum end time (30 minutes after start time)
+    const minEndDateTime = useMemo(() => {
+        if (!windowStart) return undefined;
+        const minEnd = new Date(windowStart);
+        minEnd.setMinutes(minEnd.getMinutes() + 30);
+        return minEnd;
+    }, [windowStart]);
+
+    // Handle start time changes - auto-adjust end time if needed
+    const handleStartChange = useCallback((newStart: Date | undefined) => {
+        setWindowStart(newStart);
+
+        if (newStart && windowEnd) {
+            const minEnd = new Date(newStart);
+            minEnd.setMinutes(minEnd.getMinutes() + 30);
+
+            // If current end is less than 30 mins after new start, adjust it
+            if (windowEnd < minEnd) {
+                setWindowEnd(minEnd);
+            }
+        }
+    }, [windowEnd]);
 
     const createEventMutation = useMutation({
         mutationFn: createEvent,
@@ -123,7 +146,7 @@ export default function HomePage() {
                                     </label>
                                     <CustomDateTimePicker
                                         date={windowStart}
-                                        setDate={setWindowStart}
+                                        setDate={handleStartChange}
                                         label="Start time"
                                     />
                                 </div>
@@ -135,6 +158,7 @@ export default function HomePage() {
                                         date={windowEnd}
                                         setDate={setWindowEnd}
                                         label="End time"
+                                        minDateTime={minEndDateTime}
                                     />
                                 </div>
                             </div>
