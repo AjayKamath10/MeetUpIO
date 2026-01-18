@@ -30,12 +30,16 @@ async def create_event(
     # Generate a unique 8-character slug
     slug = uuid4().hex[:8]
     
+    # Convert timezone-aware datetimes to naive UTC for database
+    window_start = event_data.window_start.replace(tzinfo=None) if event_data.window_start.tzinfo else event_data.window_start
+    window_end = event_data.window_end.replace(tzinfo=None) if event_data.window_end.tzinfo else event_data.window_end
+    
     # Create event
     event = Event(
         slug=slug,
         title=event_data.title,
-        window_start=event_data.window_start,
-        window_end=event_data.window_end
+        window_start=window_start,
+        window_end=window_end
     )
     
     session.add(event)
