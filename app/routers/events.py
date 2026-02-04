@@ -141,10 +141,14 @@ async def join_event(
     
     # Create availability slots
     for availability_input in participant_data.availabilities:
+        # Convert timezone-aware datetimes to naive UTC for database
+        start_time = availability_input.start_time.replace(tzinfo=None) if availability_input.start_time.tzinfo else availability_input.start_time
+        end_time = availability_input.end_time.replace(tzinfo=None) if availability_input.end_time.tzinfo else availability_input.end_time
+        
         availability = Availability(
             participant_id=participant.id,
-            start_time=availability_input.start_time,
-            end_time=availability_input.end_time
+            start_time=start_time,
+            end_time=end_time
         )
         session.add(availability)
     
