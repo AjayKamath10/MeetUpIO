@@ -1,17 +1,21 @@
-from sqlmodel import SQLModel, create_engine
+from sqlmodel import SQLModel
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import NullPool
 from app.core.config import settings
 
-# Supabase requires SSL. Only apply to PostgreSQL connections (not local SQLite).
-_connect_args = {"ssl": "require"} if settings.DATABASE_URL.startswith("postgresql") else {}
+_is_postgres = settings.DATABASE_URL.startswith("postgresql")
 
-# Create async engine
+# NullPool: don't maintain a SQLAlchemy connection pool.
+# Supabase's Transaction Pooler (pgBouncer) handles pooling externally.
+# This avoids DuplicatePreparedStatementError caused by long-lived connections.
+# ssl=require: Supabase mandates SSL.
 engine = create_async_engine(
     settings.DATABASE_URL,
     echo=settings.DEBUG,
     future=True,
-    connect_args=_connect_args,
+    poolclass=NullPool if _is_postgres else None,
+    connect_args={"ssl": "require"} if _is_postgres else {},
 )
 
 # Create async session factory
