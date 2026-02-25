@@ -3,15 +3,8 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
-# Connect args for Supabase compatibility:
-# - ssl=require: Supabase requires SSL connections
-# - statement_cache_size=0: Transaction mode pooler (pgBouncer) doesn't support prepared statements
-_connect_args = {}
-if settings.DATABASE_URL.startswith("postgresql"):
-    _connect_args = {
-        "ssl": "require",
-        "statement_cache_size": 0,
-    }
+# Supabase requires SSL. Only apply to PostgreSQL connections (not local SQLite).
+_connect_args = {"ssl": "require"} if settings.DATABASE_URL.startswith("postgresql") else {}
 
 # Create async engine
 engine = create_async_engine(
