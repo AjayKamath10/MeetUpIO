@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 
 from app.core.config import settings
 from app.core.db import init_db
-from app.routers import events
+from app.routers import events, locations
 
 
 @asynccontextmanager
@@ -34,6 +34,7 @@ app.add_middleware(
 
 # Register routers
 app.include_router(events.router, prefix="/api")
+app.include_router(locations.router, prefix="/api")
 
 
 @app.get("/health")

@@ -8,11 +8,11 @@ from app.core.db import get_session
 from app.models.event import Event
 from app.models.participant import Participant
 from app.models.availability import Availability
+from app.models.location import Location
 from app.schemas.event import EventCreate, EventResponse, EventDetailResponse, ParticipantBasic
 from app.schemas.participant import ParticipantCreate, ParticipantResponse
 from app.schemas.results import ResultsResponse, SuggestedTime, SuggestedLocation, VenueRecommendation
 from app.services.algorithm_service import calculate_centroid, find_overlap
-from app.services.mock_geo_service import geocode_location, get_neighborhood_name
 
 router = APIRouter(prefix="/events", tags=["events"])
 
@@ -122,8 +122,16 @@ async def join_event(
             detail=f"Event with slug '{slug}' not found"
         )
     
-    # Geocode location
-    coords = geocode_location(participant_data.location_name)
+    # Resolve coordinates from Location table; fall back to Bengaluru centre
+    DEFAULT_LAT, DEFAULT_LNG = 12.9716, 77.5946
+    location_result = await session.execute(
+        select(Location)
+        .where(Location.area_name.ilike(participant_data.location_name))  # type: ignore[attr-defined]
+        .limit(1)
+    )
+    loc = location_result.scalar_one_or_none()
+    lat = loc.lat if loc else DEFAULT_LAT
+    lng = loc.lng if loc else DEFAULT_LNG
     
     # Create participant
     participant = Participant(
@@ -131,8 +139,8 @@ async def join_event(
         name=participant_data.name,
         location_name=participant_data.location_name,
         is_host=participant_data.is_host,
-        lat=coords["lat"],
-        lng=coords["lng"]
+        lat=lat,
+        lng=lng
     )
     
     session.add(participant)
@@ -214,7 +222,8 @@ async def get_results(
     suggested_location = None
     centroid = calculate_centroid(participants)
     if centroid:
-        neighborhood = get_neighborhood_name(centroid["lat"], centroid["lng"])
+        # Use the closest participant's location_name as neighbourhood label
+        neighborhood = participants[0].location_name if participants else "Unknown"
         suggested_location = SuggestedLocation(
             lat=centroid["lat"],
             lng=centroid["lng"],

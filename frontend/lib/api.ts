@@ -46,4 +46,23 @@ export const getResults = async (slug: string): Promise<Results> => {
     return response.data;
 };
 
+// Location search
+export interface LocationResult {
+    id: number;
+    city: string;
+    area_name: string;
+    lat: number;
+    lng: number;
+}
+
+export const searchLocations = async (
+    q: string,
+    city?: string
+): Promise<LocationResult[]> => {
+    const params: Record<string, string> = { q };
+    if (city) params.city = city;
+    const response = await apiClient.get<LocationResult[]>('/api/locations/search', { params });
+    return response.data;
+};
+
 export default apiClient;

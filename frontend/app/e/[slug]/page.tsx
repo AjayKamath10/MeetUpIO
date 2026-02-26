@@ -17,6 +17,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { TimeGridSelector } from '@/components/time-grid-selector';
+import { LocationCombobox } from '@/components/location-combobox';
 import { getEvent, joinEvent } from '@/lib/api';
 import type { Availability, ParticipantCreate } from '@/types';
 
@@ -180,12 +181,9 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                                     <label htmlFor="location" className="text-sm font-medium block mb-2">
                                         Your Location
                                     </label>
-                                    <Input
-                                        id="location"
-                                        type="text"
-                                        placeholder="e.g., Koramangala, Whitefield"
+                                    <LocationCombobox
                                         value={location}
-                                        onChange={(e) => setLocation(e.target.value)}
+                                        onChange={setLocation}
                                         required
                                     />
                                 </div>
