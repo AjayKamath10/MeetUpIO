@@ -72,8 +72,9 @@ export function LocationCombobox({ value, onChange, required }: LocationCombobox
     }, []);
 
     const selectLocation = useCallback((loc: LocationResult) => {
-        setInputValue(loc.area_name);
-        onChange(loc.area_name);
+        const displayValue = `${loc.area_name}, ${loc.city}`;
+        setInputValue(displayValue);
+        onChange(displayValue);
         setIsOpen(false);
         setResults([]);
     }, [onChange]);
@@ -153,11 +154,12 @@ export function LocationCombobox({ value, onChange, required }: LocationCombobox
                             id={`location-option-${idx}`}
                             role="option"
                             aria-selected={idx === activeIndex}
-                            onMouseDown={(e) => { e.preventDefault(); selectLocation(loc); }}
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={() => selectLocation(loc)}
                             onMouseEnter={() => setActiveIndex(idx)}
                             className={`flex items-start gap-2 px-3 py-2 cursor-pointer transition-colors ${idx === activeIndex
-                                    ? 'bg-accent text-accent-foreground'
-                                    : 'hover:bg-accent hover:text-accent-foreground'
+                                ? 'bg-accent text-accent-foreground'
+                                : 'hover:bg-accent hover:text-accent-foreground'
                                 }`}
                         >
                             <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-muted-foreground" />

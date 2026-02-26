@@ -23,6 +23,9 @@ class VenueRecommendation(BaseModel):
     type: str
     description: str
     estimated_price: str
+    address: Optional[str] = None
+    rating: Optional[float] = None
+    maps_url: Optional[str] = None
 
 
 class ResultsResponse(BaseModel):

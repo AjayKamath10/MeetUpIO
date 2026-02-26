@@ -12,6 +12,8 @@ import {
     ArrowLeft,
     Utensils,
     DollarSign,
+    Star,
+    ExternalLink,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -189,18 +191,57 @@ export default function ResultsPage({ params }: { params: { slug: string } }) {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {results.venue_recommendations.map((venue, index) => (
-                                <Card key={index} className="shadow-md hover:shadow-lg transition-shadow">
+                                <Card key={index} className="shadow-md hover:shadow-lg transition-shadow flex flex-col">
                                     <CardHeader>
                                         <CardTitle className="text-lg">{venue.name}</CardTitle>
                                         <CardDescription>{venue.type}</CardDescription>
                                     </CardHeader>
-                                    <CardContent>
-                                        <p className="text-sm text-muted-foreground mb-3">
+                                    <CardContent className="flex flex-col gap-2 flex-1">
+                                        <p className="text-sm text-muted-foreground flex-1">
                                             {venue.description}
                                         </p>
-                                        <div className="flex items-center gap-1 text-sm">
-                                            <DollarSign className="h-4 w-4" />
-                                            <span>{venue.estimated_price}</span>
+
+                                        {/* Rating */}
+                                        {venue.rating !== undefined && (
+                                            <div className="flex items-center gap-1 text-sm">
+                                                {[1, 2, 3, 4, 5].map((star) => (
+                                                    <Star
+                                                        key={star}
+                                                        className={`h-4 w-4 ${star <= Math.round(venue.rating!)
+                                                                ? 'fill-yellow-400 text-yellow-400'
+                                                                : 'text-muted-foreground'
+                                                            }`}
+                                                    />
+                                                ))}
+                                                <span className="ml-1 text-muted-foreground">{venue.rating.toFixed(1)}</span>
+                                            </div>
+                                        )}
+
+                                        {/* Address */}
+                                        {venue.address && (
+                                            <div className="flex items-start gap-1 text-sm text-muted-foreground">
+                                                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                                                <span>{venue.address}</span>
+                                            </div>
+                                        )}
+
+                                        {/* Price + Maps link */}
+                                        <div className="flex items-center justify-between mt-1">
+                                            <div className="flex items-center gap-1 text-sm">
+                                                <DollarSign className="h-4 w-4" />
+                                                <span>{venue.estimated_price}</span>
+                                            </div>
+                                            {venue.maps_url && (
+                                                <a
+                                                    href={venue.maps_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-1 text-sm text-primary hover:underline"
+                                                >
+                                                    <ExternalLink className="h-3.5 w-3.5" />
+                                                    Maps
+                                                </a>
+                                            )}
                                         </div>
                                     </CardContent>
                                 </Card>

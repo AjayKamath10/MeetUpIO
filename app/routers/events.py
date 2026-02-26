@@ -5,6 +5,7 @@ from uuid import uuid4
 from typing import List
 
 from app.core.db import get_session
+from app.core.config import settings
 from app.models.event import Event
 from app.models.participant import Participant
 from app.models.availability import Availability
@@ -13,6 +14,7 @@ from app.schemas.event import EventCreate, EventResponse, EventDetailResponse, P
 from app.schemas.participant import ParticipantCreate, ParticipantResponse
 from app.schemas.results import ResultsResponse, SuggestedTime, SuggestedLocation, VenueRecommendation
 from app.services.algorithm_service import calculate_centroid, find_overlap
+from app.services.places_service import fetch_venue_recommendations
 
 router = APIRouter(prefix="/events", tags=["events"])
 
@@ -236,27 +238,41 @@ async def get_results(
             neighborhood=neighborhood
         )
     
-    # Mock venue recommendations (static for V1)
-    venue_recommendations = [
-        VenueRecommendation(
-            name="Toit Brewpub",
-            type="Brewery & Restaurant",
-            description="Popular microbrewery with craft beers and continental cuisine",
-            estimated_price="₹₹₹"
-        ),
-        VenueRecommendation(
-            name="Truffles",
-            type="Cafe & Restaurant",
-            description="Iconic burger joint known for its massive burgers and casual vibe",
-            estimated_price="₹₹"
-        ),
-        VenueRecommendation(
-            name="The Fatty Bao",
-            type="Asian Gastrobar",
-            description="Modern Asian restaurant with innovative small plates and cocktails",
-            estimated_price="₹₹₹"
-        )
-    ]
+    # Venue recommendations: use Google Places API if key is configured, else fall back to statics
+    venue_recommendations: list[VenueRecommendation] = []
+    if centroid and settings.GOOGLE_PLACES_API_KEY:
+        try:
+            venue_recommendations = await fetch_venue_recommendations(
+                lat=centroid["lat"],
+                lng=centroid["lng"],
+                api_key=settings.GOOGLE_PLACES_API_KEY,
+            )
+        except Exception:
+            # If the Places API call fails for any reason, degrade gracefully
+            venue_recommendations = []
+
+    if not venue_recommendations:
+        # Static fallback (no API key or Places API unavailable)
+        venue_recommendations = [
+            VenueRecommendation(
+                name="Toit Brewpub",
+                type="Brewery & Restaurant",
+                description="Popular microbrewery with craft beers and continental cuisine",
+                estimated_price="₹₹₹"
+            ),
+            VenueRecommendation(
+                name="Truffles",
+                type="Cafe & Restaurant",
+                description="Iconic burger joint known for its massive burgers and casual vibe",
+                estimated_price="₹₹"
+            ),
+            VenueRecommendation(
+                name="The Fatty Bao",
+                type="Asian Gastrobar",
+                description="Modern Asian restaurant with innovative small plates and cocktails",
+                estimated_price="₹₹₹"
+            )
+        ]
     
     return ResultsResponse(
         event_title=event.title,

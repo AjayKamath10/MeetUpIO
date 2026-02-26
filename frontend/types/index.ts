@@ -63,6 +63,9 @@ export interface VenueRecommendation {
     type: string;
     description: string;
     estimated_price: string;
+    address?: string;
+    rating?: number;
+    maps_url?: string;
 }
 
 export interface Results {

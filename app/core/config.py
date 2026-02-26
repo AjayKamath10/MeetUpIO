@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Midway API"
     DEBUG: bool = True
     CORS_ORIGINS: list[str] = ["http://localhost:3000", "http://localhost:5173"]
+    GOOGLE_PLACES_API_KEY: str = ""
     
     model_config = SettingsConfigDict(
         env_file=".env",

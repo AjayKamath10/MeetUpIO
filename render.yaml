@@ -14,3 +14,5 @@ services:
         value: '["https://meet-up-io.vercel.app", "http://localhost:3000"]'
       - key: PROJECT_NAME
         value: "Midway API"
+      - key: GOOGLE_PLACES_API_KEY
+        sync: false  # Set this manually in the Render dashboard
