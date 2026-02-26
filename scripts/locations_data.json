@@ -1,0 +1,2036 @@
+[
+    {
+        "city": "Bengaluru",
+        "area_name": "Koramangala",
+        "lat": 12.9352,
+        "lng": 77.6245
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Indiranagar",
+        "lat": 12.9716,
+        "lng": 77.6412
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Whitefield",
+        "lat": 12.9698,
+        "lng": 77.7499
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "HSR Layout",
+        "lat": 12.9121,
+        "lng": 77.6446
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Jayanagar",
+        "lat": 12.9250,
+        "lng": 77.5838
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "JP Nagar",
+        "lat": 12.9091,
+        "lng": 77.5855
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "BTM Layout",
+        "lat": 12.9166,
+        "lng": 77.6101
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Malleshwaram",
+        "lat": 13.0039,
+        "lng": 77.5703
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Rajajinagar",
+        "lat": 12.9915,
+        "lng": 77.5552
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Marathahalli",
+        "lat": 12.9591,
+        "lng": 77.6974
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Electronic City",
+        "lat": 12.8456,
+        "lng": 77.6603
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Yeshwanthpur",
+        "lat": 13.0280,
+        "lng": 77.5385
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Hebbal",
+        "lat": 13.0358,
+        "lng": 77.5970
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Banashankari",
+        "lat": 12.9250,
+        "lng": 77.5482
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Yelahanka",
+        "lat": 13.1007,
+        "lng": 77.5963
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "KR Puram",
+        "lat": 13.0050,
+        "lng": 77.6960
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "MG Road",
+        "lat": 12.9756,
+        "lng": 77.6063
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Majestic",
+        "lat": 12.9767,
+        "lng": 77.5711
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Basavanagudi",
+        "lat": 12.9426,
+        "lng": 77.5740
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Sadashivanagar",
+        "lat": 13.0111,
+        "lng": 77.5802
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Bellandur",
+        "lat": 12.9257,
+        "lng": 77.6804
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Sarjapur Road",
+        "lat": 12.9102,
+        "lng": 77.6854
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Bannerghatta Road",
+        "lat": 12.8744,
+        "lng": 77.5969
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Old Airport Road",
+        "lat": 12.9594,
+        "lng": 77.6486
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Ulsoor",
+        "lat": 12.9834,
+        "lng": 77.6204
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Richmond Town",
+        "lat": 12.9610,
+        "lng": 77.6016
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Shivajinagar",
+        "lat": 12.9791,
+        "lng": 77.6000
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Cunningham Road",
+        "lat": 12.9912,
+        "lng": 77.5932
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Nagarbhavi",
+        "lat": 12.9591,
+        "lng": 77.5027
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Kengeri",
+        "lat": 12.9090,
+        "lng": 77.4842
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Domlur",
+        "lat": 12.9607,
+        "lng": 77.6394
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "HAL",
+        "lat": 12.9592,
+        "lng": 77.6551
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "CV Raman Nagar",
+        "lat": 12.9850,
+        "lng": 77.6601
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Frazer Town",
+        "lat": 13.0003,
+        "lng": 77.6101
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Benson Town",
+        "lat": 13.0044,
+        "lng": 77.5981
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "HBR Layout",
+        "lat": 13.0261,
+        "lng": 77.6447
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "RT Nagar",
+        "lat": 13.0238,
+        "lng": 77.5952
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Mathikere",
+        "lat": 13.0313,
+        "lng": 77.5648
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Peenya",
+        "lat": 13.0307,
+        "lng": 77.5180
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Tumkur Road",
+        "lat": 13.0525,
+        "lng": 77.5185
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Devanahalli",
+        "lat": 13.2479,
+        "lng": 77.7172
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Hoskote",
+        "lat": 13.0706,
+        "lng": 77.7984
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Vidyaranyapura",
+        "lat": 13.0736,
+        "lng": 77.5582
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Nandini Layout",
+        "lat": 13.0073,
+        "lng": 77.5343
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Vijayanagar",
+        "lat": 12.9750,
+        "lng": 77.5386
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "RR Nagar",
+        "lat": 12.9227,
+        "lng": 77.5139
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Uttarahalli",
+        "lat": 12.8929,
+        "lng": 77.5456
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Hulimavu",
+        "lat": 12.8847,
+        "lng": 77.6061
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Gottigere",
+        "lat": 12.8540,
+        "lng": 77.6011
+    },
+    {
+        "city": "Bengaluru",
+        "area_name": "Akshayanagar",
+        "lat": 12.8724,
+        "lng": 77.6388
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Bandra",
+        "lat": 19.0544,
+        "lng": 72.8403
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Andheri",
+        "lat": 19.1136,
+        "lng": 72.8697
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Juhu",
+        "lat": 19.1075,
+        "lng": 72.8263
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Powai",
+        "lat": 19.1197,
+        "lng": 72.9051
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Colaba",
+        "lat": 18.9067,
+        "lng": 72.8147
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Dadar",
+        "lat": 19.0178,
+        "lng": 72.8478
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Kurla",
+        "lat": 19.0728,
+        "lng": 72.8826
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Malad",
+        "lat": 19.1874,
+        "lng": 72.8481
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Borivali",
+        "lat": 19.2290,
+        "lng": 72.8567
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Goregaon",
+        "lat": 19.1663,
+        "lng": 72.8526
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Kandivali",
+        "lat": 19.2094,
+        "lng": 72.8526
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Santacruz",
+        "lat": 19.0805,
+        "lng": 72.8425
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Vile Parle",
+        "lat": 19.0969,
+        "lng": 72.8453
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Jogeshwari",
+        "lat": 19.1373,
+        "lng": 72.8489
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Versova",
+        "lat": 19.1337,
+        "lng": 72.8142
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Lower Parel",
+        "lat": 18.9935,
+        "lng": 72.8302
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Worli",
+        "lat": 19.0176,
+        "lng": 72.8178
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Prabhadevi",
+        "lat": 19.0151,
+        "lng": 72.8296
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Chembur",
+        "lat": 19.0522,
+        "lng": 72.9005
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Ghatkopar",
+        "lat": 19.0863,
+        "lng": 72.9089
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Vikhroli",
+        "lat": 19.1071,
+        "lng": 72.9239
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Mulund",
+        "lat": 19.1726,
+        "lng": 72.9569
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Bhandup",
+        "lat": 19.1524,
+        "lng": 72.9413
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Kanjurmarg",
+        "lat": 19.1314,
+        "lng": 72.9389
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Nahur",
+        "lat": 19.1355,
+        "lng": 72.9356
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Thane",
+        "lat": 19.2183,
+        "lng": 72.9781
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Navi Mumbai",
+        "lat": 19.0330,
+        "lng": 73.0297
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Dharavi",
+        "lat": 19.0400,
+        "lng": 72.8519
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Sion",
+        "lat": 19.0416,
+        "lng": 72.8619
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Matunga",
+        "lat": 19.0301,
+        "lng": 72.8573
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Mahalaxmi",
+        "lat": 18.9826,
+        "lng": 72.8208
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Grant Road",
+        "lat": 18.9638,
+        "lng": 72.8180
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Marine Lines",
+        "lat": 18.9386,
+        "lng": 72.8236
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Churchgate",
+        "lat": 18.9322,
+        "lng": 72.8264
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Fort",
+        "lat": 18.9342,
+        "lng": 72.8354
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Nariman Point",
+        "lat": 18.9256,
+        "lng": 72.8242
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Cuffe Parade",
+        "lat": 18.9148,
+        "lng": 72.8233
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Dombivli",
+        "lat": 19.2170,
+        "lng": 73.0870
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Kalyan",
+        "lat": 19.2437,
+        "lng": 73.1355
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Vasai",
+        "lat": 19.3919,
+        "lng": 72.8397
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Virar",
+        "lat": 19.4647,
+        "lng": 72.8110
+    },
+    {
+        "city": "Mumbai",
+        "area_name": "Mira Road",
+        "lat": 19.2812,
+        "lng": 72.8681
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Connaught Place",
+        "lat": 28.6315,
+        "lng": 77.2167
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Lajpat Nagar",
+        "lat": 28.5700,
+        "lng": 77.2373
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Hauz Khas",
+        "lat": 28.5494,
+        "lng": 77.2001
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Saket",
+        "lat": 28.5242,
+        "lng": 77.2100
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Vasant Kunj",
+        "lat": 28.5223,
+        "lng": 77.1577
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Dwarka",
+        "lat": 28.5921,
+        "lng": 77.0460
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Rohini",
+        "lat": 28.7480,
+        "lng": 77.0747
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Pitampura",
+        "lat": 28.7006,
+        "lng": 77.1320
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Janakpuri",
+        "lat": 28.6217,
+        "lng": 77.0836
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Karol Bagh",
+        "lat": 28.6519,
+        "lng": 77.1909
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Paharganj",
+        "lat": 28.6454,
+        "lng": 77.2167
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Rajouri Garden",
+        "lat": 28.6471,
+        "lng": 77.1226
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Tilak Nagar",
+        "lat": 28.6373,
+        "lng": 77.1022
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Vikaspuri",
+        "lat": 28.6369,
+        "lng": 77.0721
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Uttam Nagar",
+        "lat": 28.6191,
+        "lng": 77.0542
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Mayur Vihar",
+        "lat": 28.6076,
+        "lng": 77.2944
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Preet Vihar",
+        "lat": 28.6330,
+        "lng": 77.2946
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Noida Sector 18",
+        "lat": 28.5696,
+        "lng": 77.3210
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Gurgaon",
+        "lat": 28.4595,
+        "lng": 77.0266
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Faridabad",
+        "lat": 28.4089,
+        "lng": 77.3178
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Nehru Place",
+        "lat": 28.5477,
+        "lng": 77.2520
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Greater Kailash",
+        "lat": 28.5336,
+        "lng": 77.2390
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Malviya Nagar",
+        "lat": 28.5303,
+        "lng": 77.2100
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Green Park",
+        "lat": 28.5593,
+        "lng": 77.2037
+    },
+    {
+        "city": "Delhi",
+        "area_name": "South Extension",
+        "lat": 28.5696,
+        "lng": 77.2210
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Defence Colony",
+        "lat": 28.5697,
+        "lng": 77.2381
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Safdarjung",
+        "lat": 28.5688,
+        "lng": 77.2037
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Chanakyapuri",
+        "lat": 28.5972,
+        "lng": 77.1862
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Vasant Vihar",
+        "lat": 28.5660,
+        "lng": 77.1601
+    },
+    {
+        "city": "Delhi",
+        "area_name": "RK Puram",
+        "lat": 28.5627,
+        "lng": 77.1776
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Civil Lines",
+        "lat": 28.6790,
+        "lng": 77.2261
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Model Town",
+        "lat": 28.7135,
+        "lng": 77.1927
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Shalimar Bagh",
+        "lat": 28.7199,
+        "lng": 77.1551
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Ashok Vihar",
+        "lat": 28.6922,
+        "lng": 77.1750
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Wazirpur",
+        "lat": 28.6998,
+        "lng": 77.1656
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Rani Bagh",
+        "lat": 28.7102,
+        "lng": 77.1255
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Paschim Vihar",
+        "lat": 28.6695,
+        "lng": 77.0959
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Patel Nagar",
+        "lat": 28.6558,
+        "lng": 77.1626
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Shahdara",
+        "lat": 28.6731,
+        "lng": 77.2882
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Laxmi Nagar",
+        "lat": 28.6373,
+        "lng": 77.2790
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Patparganj",
+        "lat": 28.6250,
+        "lng": 77.2998
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Vasundhara Enclave",
+        "lat": 28.6056,
+        "lng": 77.3155
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Krishna Nagar",
+        "lat": 28.6478,
+        "lng": 77.2800
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Vivek Vihar",
+        "lat": 28.6715,
+        "lng": 77.3101
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Dilshad Garden",
+        "lat": 28.6840,
+        "lng": 77.3213
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Mandawali",
+        "lat": 28.6330,
+        "lng": 77.3114
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Daryaganj",
+        "lat": 28.6401,
+        "lng": 77.2397
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Chandni Chowk",
+        "lat": 28.6506,
+        "lng": 77.2303
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Sadar Bazaar",
+        "lat": 28.6569,
+        "lng": 77.2079
+    },
+    {
+        "city": "Delhi",
+        "area_name": "Ballimaran",
+        "lat": 28.6553,
+        "lng": 77.2197
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Hitech City",
+        "lat": 17.4486,
+        "lng": 78.3908
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Banjara Hills",
+        "lat": 17.4156,
+        "lng": 78.4347
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Jubilee Hills",
+        "lat": 17.4324,
+        "lng": 78.4073
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Gachibowli",
+        "lat": 17.4401,
+        "lng": 78.3489
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Kondapur",
+        "lat": 17.4673,
+        "lng": 78.3615
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Madhapur",
+        "lat": 17.4516,
+        "lng": 78.3815
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Miyapur",
+        "lat": 17.4940,
+        "lng": 78.3467
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Kukatpally",
+        "lat": 17.4849,
+        "lng": 78.3988
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Begumpet",
+        "lat": 17.4437,
+        "lng": 78.4688
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Secunderabad",
+        "lat": 17.4399,
+        "lng": 78.4983
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Ameerpet",
+        "lat": 17.4375,
+        "lng": 78.4482
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "SR Nagar",
+        "lat": 17.4428,
+        "lng": 78.4353
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Punjagutta",
+        "lat": 17.4255,
+        "lng": 78.4526
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Somajiguda",
+        "lat": 17.4225,
+        "lng": 78.4694
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Nampally",
+        "lat": 17.3891,
+        "lng": 78.4717
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Charminar",
+        "lat": 17.3616,
+        "lng": 78.4747
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Abids",
+        "lat": 17.3929,
+        "lng": 78.4827
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "LB Nagar",
+        "lat": 17.3465,
+        "lng": 78.5525
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Dilsukhnagar",
+        "lat": 17.3682,
+        "lng": 78.5261
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Uppal",
+        "lat": 17.4005,
+        "lng": 78.5592
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Ghatkesar",
+        "lat": 17.4379,
+        "lng": 78.6944
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Malkajgiri",
+        "lat": 17.4444,
+        "lng": 78.5221
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Sainikpuri",
+        "lat": 17.4743,
+        "lng": 78.5543
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Kompally",
+        "lat": 17.5554,
+        "lng": 78.4786
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Medchal",
+        "lat": 17.6270,
+        "lng": 78.4811
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Bachupally",
+        "lat": 17.5409,
+        "lng": 78.3888
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Nizampet",
+        "lat": 17.5126,
+        "lng": 78.3851
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Chandanagar",
+        "lat": 17.4943,
+        "lng": 78.3157
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Manikonda",
+        "lat": 17.4046,
+        "lng": 78.3964
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Narsingi",
+        "lat": 17.3880,
+        "lng": 78.3764
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Puppalguda",
+        "lat": 17.3951,
+        "lng": 78.3641
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Financial District",
+        "lat": 17.4145,
+        "lng": 78.3784
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Nanakramguda",
+        "lat": 17.4254,
+        "lng": 78.3755
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Kokapet",
+        "lat": 17.4063,
+        "lng": 78.3586
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Shamshabad",
+        "lat": 17.2543,
+        "lng": 78.4261
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Attapur",
+        "lat": 17.3727,
+        "lng": 78.4218
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Tolichowki",
+        "lat": 17.3927,
+        "lng": 78.4295
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Mehdipatnam",
+        "lat": 17.3939,
+        "lng": 78.4418
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Masab Tank",
+        "lat": 17.4048,
+        "lng": 78.4546
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Khairatabad",
+        "lat": 17.4167,
+        "lng": 78.4611
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Himayatnagar",
+        "lat": 17.4098,
+        "lng": 78.4786
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Narayanguda",
+        "lat": 17.3920,
+        "lng": 78.4955
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Musheerabad",
+        "lat": 17.4010,
+        "lng": 78.4984
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Ram Nagar",
+        "lat": 17.4112,
+        "lng": 78.5037
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Maredpally",
+        "lat": 17.4435,
+        "lng": 78.5113
+    },
+    {
+        "city": "Hyderabad",
+        "area_name": "Trimulgherry",
+        "lat": 17.4617,
+        "lng": 78.5188
+    },
+    {
+        "city": "Chennai",
+        "area_name": "T. Nagar",
+        "lat": 13.0418,
+        "lng": 80.2341
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Anna Nagar",
+        "lat": 13.0850,
+        "lng": 80.2101
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Adyar",
+        "lat": 13.0012,
+        "lng": 80.2565
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Velachery",
+        "lat": 12.9815,
+        "lng": 80.2209
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Tambaram",
+        "lat": 12.9249,
+        "lng": 80.1000
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Porur",
+        "lat": 13.0337,
+        "lng": 80.1565
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Sholinganallur",
+        "lat": 12.9010,
+        "lng": 80.2279
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Perungudi",
+        "lat": 12.9573,
+        "lng": 80.2450
+    },
+    {
+        "city": "Chennai",
+        "area_name": "OMR",
+        "lat": 12.8988,
+        "lng": 80.2297
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Guindy",
+        "lat": 13.0069,
+        "lng": 80.2206
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Ekkatuthangal",
+        "lat": 13.0133,
+        "lng": 80.2114
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Vadapalani",
+        "lat": 13.0514,
+        "lng": 80.2121
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Ashok Nagar",
+        "lat": 13.0392,
+        "lng": 80.2184
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Nungambakkam",
+        "lat": 13.0612,
+        "lng": 80.2419
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Alwarpet",
+        "lat": 13.0323,
+        "lng": 80.2558
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Mylapore",
+        "lat": 13.0368,
+        "lng": 80.2676
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Triplicane",
+        "lat": 13.0561,
+        "lng": 80.2766
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Egmore",
+        "lat": 13.0732,
+        "lng": 80.2609
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Perambur",
+        "lat": 13.1152,
+        "lng": 80.2411
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Kolathur",
+        "lat": 13.1292,
+        "lng": 80.2218
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Villivakkam",
+        "lat": 13.1100,
+        "lng": 80.2099
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Ambattur",
+        "lat": 13.0982,
+        "lng": 80.1615
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Avadi",
+        "lat": 13.1149,
+        "lng": 80.1021
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Poonamallee",
+        "lat": 13.0465,
+        "lng": 80.1166
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Mogappair",
+        "lat": 13.0866,
+        "lng": 80.1674
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Koyambedu",
+        "lat": 13.0718,
+        "lng": 80.1955
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Valasaravakkam",
+        "lat": 13.0393,
+        "lng": 80.1754
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Virugambakkam",
+        "lat": 13.0546,
+        "lng": 80.1962
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Kodambakkam",
+        "lat": 13.0531,
+        "lng": 80.2220
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Saidapet",
+        "lat": 13.0213,
+        "lng": 80.2254
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Chromepet",
+        "lat": 12.9516,
+        "lng": 80.1432
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Pallavaram",
+        "lat": 12.9675,
+        "lng": 80.1510
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Selaiyur",
+        "lat": 12.9131,
+        "lng": 80.1436
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Medavakkam",
+        "lat": 12.9177,
+        "lng": 80.1952
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Perungalathur",
+        "lat": 12.8808,
+        "lng": 80.0971
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Kelambakkam",
+        "lat": 12.7847,
+        "lng": 80.2199
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Siruseri",
+        "lat": 12.8360,
+        "lng": 80.2270
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Navallur",
+        "lat": 12.8393,
+        "lng": 80.2311
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Thoraipakkam",
+        "lat": 12.9290,
+        "lng": 80.2329
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Karapakkam",
+        "lat": 12.9187,
+        "lng": 80.2295
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Perungudi",
+        "lat": 12.9573,
+        "lng": 80.2450
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Thiruvanmiyur",
+        "lat": 12.9832,
+        "lng": 80.2578
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Besant Nagar",
+        "lat": 13.0002,
+        "lng": 80.2688
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Kotturpuram",
+        "lat": 13.0150,
+        "lng": 80.2495
+    },
+    {
+        "city": "Chennai",
+        "area_name": "Boat Club",
+        "lat": 13.0219,
+        "lng": 80.2421
+    },
+    {
+        "city": "Pune",
+        "area_name": "Koregaon Park",
+        "lat": 18.5362,
+        "lng": 73.8944
+    },
+    {
+        "city": "Pune",
+        "area_name": "Baner",
+        "lat": 18.5590,
+        "lng": 73.7868
+    },
+    {
+        "city": "Pune",
+        "area_name": "Kothrud",
+        "lat": 18.5074,
+        "lng": 73.8077
+    },
+    {
+        "city": "Pune",
+        "area_name": "Viman Nagar",
+        "lat": 18.5679,
+        "lng": 73.9143
+    },
+    {
+        "city": "Pune",
+        "area_name": "Magarpatta",
+        "lat": 18.5135,
+        "lng": 73.9280
+    },
+    {
+        "city": "Pune",
+        "area_name": "Hadapsar",
+        "lat": 18.5018,
+        "lng": 73.9259
+    },
+    {
+        "city": "Pune",
+        "area_name": "Aundh",
+        "lat": 18.5591,
+        "lng": 73.8077
+    },
+    {
+        "city": "Pune",
+        "area_name": "Wakad",
+        "lat": 18.5985,
+        "lng": 73.7614
+    },
+    {
+        "city": "Pune",
+        "area_name": "Hinjewadi",
+        "lat": 18.5912,
+        "lng": 73.7380
+    },
+    {
+        "city": "Pune",
+        "area_name": "Pimpri-Chinchwad",
+        "lat": 18.6279,
+        "lng": 73.7997
+    },
+    {
+        "city": "Pune",
+        "area_name": "Deccan Gymkhana",
+        "lat": 18.5157,
+        "lng": 73.8432
+    },
+    {
+        "city": "Pune",
+        "area_name": "Shivaji Nagar",
+        "lat": 18.5308,
+        "lng": 73.8474
+    },
+    {
+        "city": "Pune",
+        "area_name": "Camp",
+        "lat": 18.5142,
+        "lng": 73.8774
+    },
+    {
+        "city": "Pune",
+        "area_name": "Wanowrie",
+        "lat": 18.4858,
+        "lng": 73.9017
+    },
+    {
+        "city": "Pune",
+        "area_name": "Katraj",
+        "lat": 18.4530,
+        "lng": 73.8662
+    },
+    {
+        "city": "Pune",
+        "area_name": "Kondhwa",
+        "lat": 18.4677,
+        "lng": 73.8919
+    },
+    {
+        "city": "Pune",
+        "area_name": "NIBM Road",
+        "lat": 18.4683,
+        "lng": 73.9022
+    },
+    {
+        "city": "Pune",
+        "area_name": "Undri",
+        "lat": 18.4558,
+        "lng": 73.9173
+    },
+    {
+        "city": "Pune",
+        "area_name": "Kharadi",
+        "lat": 18.5519,
+        "lng": 73.9459
+    },
+    {
+        "city": "Pune",
+        "area_name": "Wagholi",
+        "lat": 18.5699,
+        "lng": 73.9814
+    },
+    {
+        "city": "Pune",
+        "area_name": "Kalyani Nagar",
+        "lat": 18.5476,
+        "lng": 73.9023
+    },
+    {
+        "city": "Pune",
+        "area_name": "Nagar Road",
+        "lat": 18.5428,
+        "lng": 73.9243
+    },
+    {
+        "city": "Pune",
+        "area_name": "Vishrantwadi",
+        "lat": 18.5840,
+        "lng": 73.8892
+    },
+    {
+        "city": "Pune",
+        "area_name": "Lohegaon",
+        "lat": 18.5916,
+        "lng": 73.9116
+    },
+    {
+        "city": "Pune",
+        "area_name": "Dhanori",
+        "lat": 18.5879,
+        "lng": 73.9003
+    },
+    {
+        "city": "Pune",
+        "area_name": "Sinhagad Road",
+        "lat": 18.4751,
+        "lng": 73.8123
+    },
+    {
+        "city": "Pune",
+        "area_name": "Warje",
+        "lat": 18.4900,
+        "lng": 73.8003
+    },
+    {
+        "city": "Pune",
+        "area_name": "Bavdhan",
+        "lat": 18.5130,
+        "lng": 73.7805
+    },
+    {
+        "city": "Pune",
+        "area_name": "Pashan",
+        "lat": 18.5344,
+        "lng": 73.7998
+    },
+    {
+        "city": "Pune",
+        "area_name": "Sus Road",
+        "lat": 18.5494,
+        "lng": 73.7674
+    },
+    {
+        "city": "Pune",
+        "area_name": "Balewadi",
+        "lat": 18.5789,
+        "lng": 73.7807
+    },
+    {
+        "city": "Pune",
+        "area_name": "Tathawade",
+        "lat": 18.6049,
+        "lng": 73.7639
+    },
+    {
+        "city": "Pune",
+        "area_name": "Rahatani",
+        "lat": 18.6011,
+        "lng": 73.7742
+    },
+    {
+        "city": "Pune",
+        "area_name": "Dighi",
+        "lat": 18.6210,
+        "lng": 73.8614
+    },
+    {
+        "city": "Pune",
+        "area_name": "Alandi Road",
+        "lat": 18.6386,
+        "lng": 73.8895
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Park Street",
+        "lat": 22.5527,
+        "lng": 88.3527
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Salt Lake",
+        "lat": 22.5775,
+        "lng": 88.4175
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "New Town",
+        "lat": 22.5842,
+        "lng": 88.4728
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Howrah",
+        "lat": 22.5958,
+        "lng": 88.2636
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Ballygunge",
+        "lat": 22.5266,
+        "lng": 88.3676
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Alipore",
+        "lat": 22.5282,
+        "lng": 88.3354
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Jadavpur",
+        "lat": 22.4970,
+        "lng": 88.3720
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Behala",
+        "lat": 22.4998,
+        "lng": 88.3112
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Tollygunge",
+        "lat": 22.4998,
+        "lng": 88.3442
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Dum Dum",
+        "lat": 22.6394,
+        "lng": 88.3977
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Barasat",
+        "lat": 22.7213,
+        "lng": 88.4761
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Baranagar",
+        "lat": 22.6370,
+        "lng": 88.3765
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Lake Town",
+        "lat": 22.6022,
+        "lng": 88.3919
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Shyambazar",
+        "lat": 22.5891,
+        "lng": 88.3717
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Hatibagan",
+        "lat": 22.5851,
+        "lng": 88.3798
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Ultadanga",
+        "lat": 22.5907,
+        "lng": 88.3994
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Phoolbagan",
+        "lat": 22.5730,
+        "lng": 88.3910
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Garia",
+        "lat": 22.4601,
+        "lng": 88.3850
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Sonarpur",
+        "lat": 22.4330,
+        "lng": 88.4232
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Narendrapur",
+        "lat": 22.4400,
+        "lng": 88.3978
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Barisha",
+        "lat": 22.5006,
+        "lng": 88.3104
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Kasba",
+        "lat": 22.5182,
+        "lng": 88.3817
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Dhakuria",
+        "lat": 22.5079,
+        "lng": 88.3621
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Rajpur",
+        "lat": 22.4400,
+        "lng": 88.4022
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Santoshpur",
+        "lat": 22.4880,
+        "lng": 88.3886
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Regent Park",
+        "lat": 22.5119,
+        "lng": 88.3800
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Manicktala",
+        "lat": 22.5775,
+        "lng": 88.3813
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Entally",
+        "lat": 22.5618,
+        "lng": 88.3717
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Sealdah",
+        "lat": 22.5681,
+        "lng": 88.3698
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Rabindra Sarani",
+        "lat": 22.5700,
+        "lng": 88.3590
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Girish Park",
+        "lat": 22.5843,
+        "lng": 88.3609
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Belgachia",
+        "lat": 22.5985,
+        "lng": 88.3727
+    },
+    {
+        "city": "Kolkata",
+        "area_name": "Sinthee",
+        "lat": 22.6113,
+        "lng": 88.3834
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Navrangpura",
+        "lat": 23.0367,
+        "lng": 72.5580
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Satellite",
+        "lat": 23.0140,
+        "lng": 72.5050
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Bodakdev",
+        "lat": 23.0461,
+        "lng": 72.5139
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Vastrapur",
+        "lat": 23.0322,
+        "lng": 72.5199
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Prahladnagar",
+        "lat": 23.0082,
+        "lng": 72.5085
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Maninagar",
+        "lat": 22.9975,
+        "lng": 72.6017
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Gota",
+        "lat": 23.1003,
+        "lng": 72.5459
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Chandkheda",
+        "lat": 23.1119,
+        "lng": 72.5849
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Naroda",
+        "lat": 23.0891,
+        "lng": 72.6440
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Nikol",
+        "lat": 23.0567,
+        "lng": 72.6476
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Vastral",
+        "lat": 23.0127,
+        "lng": 72.6584
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Odhav",
+        "lat": 23.0381,
+        "lng": 72.6557
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "CTM",
+        "lat": 23.0454,
+        "lng": 72.6378
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Isanpur",
+        "lat": 22.9874,
+        "lng": 72.6255
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Juhapura",
+        "lat": 22.9790,
+        "lng": 72.5368
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Vejalpur",
+        "lat": 23.0009,
+        "lng": 72.5261
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Jodhpur",
+        "lat": 23.0205,
+        "lng": 72.5033
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Thaltej",
+        "lat": 23.0563,
+        "lng": 72.5122
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "SG Road",
+        "lat": 23.0437,
+        "lng": 72.5055
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Judges Bungalow",
+        "lat": 23.0490,
+        "lng": 72.5180
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Drive In Road",
+        "lat": 23.0450,
+        "lng": 72.5350
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Memnagar",
+        "lat": 23.0487,
+        "lng": 72.5462
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Sabarmati",
+        "lat": 23.0895,
+        "lng": 72.5785
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Motera",
+        "lat": 23.1015,
+        "lng": 72.5977
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Ranip",
+        "lat": 23.0772,
+        "lng": 72.5601
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Nava Naroda",
+        "lat": 23.0784,
+        "lng": 72.6435
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Vatva",
+        "lat": 22.9674,
+        "lng": 72.6416
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Narol",
+        "lat": 22.9583,
+        "lng": 72.6318
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Lambha",
+        "lat": 22.9482,
+        "lng": 72.6100
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Sarkhej",
+        "lat": 22.9855,
+        "lng": 72.4968
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Bopal",
+        "lat": 23.0073,
+        "lng": 72.4679
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "South Bopal",
+        "lat": 22.9930,
+        "lng": 72.4697
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Shela",
+        "lat": 22.9837,
+        "lng": 72.4555
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Ghuma",
+        "lat": 22.9876,
+        "lng": 72.4452
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Ambawadi",
+        "lat": 23.0244,
+        "lng": 72.5474
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Paldi",
+        "lat": 23.0105,
+        "lng": 72.5651
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "Ellisbridge",
+        "lat": 23.0254,
+        "lng": 72.5620
+    },
+    {
+        "city": "Ahmedabad",
+        "area_name": "CG Road",
+        "lat": 23.0313,
+        "lng": 72.5586
+    }
+]
