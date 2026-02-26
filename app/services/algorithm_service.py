@@ -2,35 +2,73 @@ from datetime import datetime
 from typing import List, Dict, Optional
 from app.models.participant import Participant
 from app.models.availability import Availability
+import math
 
 
-def calculate_centroid(participants: List[Participant]) -> Optional[Dict[str, float]]:
+def calculate_geometric_median(participants: List[Participant]) -> Optional[Dict[str, float]]:
     """
-    Calculate the geographic centroid (center point) from participant locations.
-    
+    Calculate the geographic median (1-median) using the Weiszfeld algorithm.
+
+    This minimises the sum of straight-line distances from the result point
+    to all participant locations — fairer than the arithmetic mean when
+    one participant is a significant outlier.
+
     Args:
         participants: List of participants with lat/lng coordinates
-        
+
     Returns:
         Dictionary with 'lat' and 'lng' keys, or None if no valid coordinates
     """
-    valid_coords = [
-        (p.lat, p.lng) 
-        for p in participants 
+    coords = [
+        (p.lat, p.lng)
+        for p in participants
         if p.lat is not None and p.lng is not None
     ]
-    
-    if not valid_coords:
+
+    if not coords:
         return None
-    
-    # Calculate simple arithmetic mean (suitable for city-scale distances)
-    avg_lat = sum(lat for lat, _ in valid_coords) / len(valid_coords)
-    avg_lng = sum(lng for _, lng in valid_coords) / len(valid_coords)
-    
-    return {
-        "lat": avg_lat,
-        "lng": avg_lng
-    }
+
+    if len(coords) == 1:
+        return {"lat": coords[0][0], "lng": coords[0][1]}
+
+    # Initialise with arithmetic mean
+    est_lat = sum(lat for lat, _ in coords) / len(coords)
+    est_lng = sum(lng for _, lng in coords) / len(coords)
+
+    MAX_ITERATIONS = 300
+    EPSILON = 1e-7  # ~1 cm precision at city scale
+
+    for _ in range(MAX_ITERATIONS):
+        weights, w_lat, w_lng = 0.0, 0.0, 0.0
+
+        for lat, lng in coords:
+            dist = math.sqrt((est_lat - lat) ** 2 + (est_lng - lng) ** 2)
+            if dist < EPSILON:
+                # Current estimate coincides with this point — skip to avoid /0
+                continue
+            w = 1.0 / dist
+            weights += w
+            w_lat += w * lat
+            w_lng += w * lng
+
+        if weights == 0:
+            # All points coincide with the estimate — we're done
+            break
+
+        new_lat = w_lat / weights
+        new_lng = w_lng / weights
+
+        if math.sqrt((new_lat - est_lat) ** 2 + (new_lng - est_lng) ** 2) < EPSILON:
+            est_lat, est_lng = new_lat, new_lng
+            break
+
+        est_lat, est_lng = new_lat, new_lng
+
+    return {"lat": est_lat, "lng": est_lng}
+
+
+# Keep the old name as an alias so callers can be updated gradually
+calculate_centroid = calculate_geometric_median
 
 
 def find_overlap(availabilities: List[Availability]) -> Optional[Dict]:

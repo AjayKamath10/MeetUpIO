@@ -218,12 +218,18 @@ async def get_results(
                 participant_count=overlap["count"]
             )
     
-    # Calculate suggested location (centroid)
+    # Calculate suggested location (geometric median)
     suggested_location = None
     centroid = calculate_centroid(participants)
     if centroid:
-        # Use the closest participant's location_name as neighbourhood label
-        neighborhood = participants[0].location_name if participants else "Unknown"
+        # Label: find the participant whose location is closest to the median
+        def dist(p: Participant) -> float:
+            if p.lat is None or p.lng is None:
+                return float("inf")
+            return ((p.lat - centroid["lat"]) ** 2 + (p.lng - centroid["lng"]) ** 2) ** 0.5
+
+        closest = min(participants, key=dist)
+        neighborhood = closest.location_name
         suggested_location = SuggestedLocation(
             lat=centroid["lat"],
             lng=centroid["lng"],
