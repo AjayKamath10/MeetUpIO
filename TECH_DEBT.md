@@ -43,7 +43,7 @@ Use Gemini (or another LLM) to generate a short, contextual summary for each ven
 
 **How to implement:**
 1. After fetching venues from Places API, send venue details + `event_type` to Gemini API.
-2. Prompt: `"Given this JSON of venues and event type '{event_type}', write a 1-sentence recommendation for each venue in the context of the event."`
+2. Prompt: "Given this JSON of venues and event type '{event_type}', write a 1-sentence recommendation for each venue in the context of the event."
 3. Replace or augment `description` field with the AI-generated summary.
 
 **Files to change:**
@@ -82,6 +82,7 @@ Uses a **simple arithmetic mean** of participant coordinates (`calculate_centroi
 - **Multiple windows:** Return ranked top-3 time slots instead of just 1
 - **Minimum quorum:** Only suggest a time if ≥ 50% (or configurable %) of participants are free
 - **Timezone awareness:** Currently assumes all participants share a timezone; add `timezone` field to `Participant`
+- **Date validation:** Currently until date is allowed to be before from date — validation required
 
 **Files to change:**
 - `app/services/algorithm_service.py`
