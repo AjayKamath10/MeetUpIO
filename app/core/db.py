@@ -15,7 +15,7 @@ engine = create_async_engine(
     echo=settings.DEBUG,
     future=True,
     poolclass=NullPool if _is_postgres else None,
-    connect_args={"ssl": "require"} if _is_postgres else {},
+    connect_args={"ssl": "require", "statement_cache_size": 0} if _is_postgres else {},
 )
 
 # Create async session factory
