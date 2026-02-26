@@ -202,14 +202,14 @@ export default function ResultsPage({ params }: { params: { slug: string } }) {
                                         </p>
 
                                         {/* Rating */}
-                                        {venue.rating !== undefined && (
+                                        {venue.rating != null && (
                                             <div className="flex items-center gap-1 text-sm">
                                                 {[1, 2, 3, 4, 5].map((star) => (
                                                     <Star
                                                         key={star}
                                                         className={`h-4 w-4 ${star <= Math.round(venue.rating!)
-                                                                ? 'fill-yellow-400 text-yellow-400'
-                                                                : 'text-muted-foreground'
+                                                            ? 'fill-yellow-400 text-yellow-400'
+                                                            : 'text-muted-foreground'
                                                             }`}
                                                     />
                                                 ))}

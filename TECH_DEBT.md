@@ -98,3 +98,4 @@ Uses a **simple arithmetic mean** of participant coordinates (`calculate_centroi
 | **No rate limiting** | Results endpoint calls Places API on every request. Add Redis caching keyed on `(slug, centroid)` |
 | **Static location data** | `Location` table seeded from a JSON file. Consider integrating a live geocoding API for coverage beyond seeded cities |
 | **Frontend error handling** | `alert()` still used in share fallback (`results/page.tsx:55`). Replace with toast notification |
+| **Staging environment** | Create a staging environment (frontend + backend + DB) to test changes before deploying to production |
