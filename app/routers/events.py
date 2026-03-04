@@ -11,7 +11,7 @@ from app.models.participant import Participant
 from app.models.availability import Availability
 from app.models.location import Location
 from app.schemas.event import EventCreate, EventResponse, EventDetailResponse, ParticipantBasic
-from app.schemas.participant import ParticipantCreate, ParticipantResponse
+from app.schemas.participant import ParticipantCreate, ParticipantResponse, DeclineCreate
 from app.schemas.results import ResultsResponse, SuggestedTime, SuggestedLocation, VenueRecommendation
 from app.services.algorithm_service import calculate_centroid, find_overlap
 from app.services.places_service import fetch_venue_recommendations
@@ -91,7 +91,8 @@ async def get_event(
                 id=p.id,
                 name=p.name,
                 location_name=p.location_name,
-                is_host=p.is_host
+                is_host=p.is_host,
+                declined=p.declined
             )
             for p in participants
         ]
@@ -167,6 +168,43 @@ async def join_event(
     return participant
 
 
+@router.post("/{slug}/decline", response_model=ParticipantResponse, status_code=status.HTTP_201_CREATED)
+async def decline_event(
+    slug: str,
+    decline_data: DeclineCreate,
+    session: AsyncSession = Depends(get_session)
+):
+    """
+    Record that a person is declining the event invitation.
+    Creates a Participant row with declined=True and no availability.
+    """
+    # Find event
+    result = await session.execute(
+        select(Event).where(Event.slug == slug)
+    )
+    event = result.scalar_one_or_none()
+
+    if not event:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Event with slug '{slug}' not found"
+        )
+
+    participant = Participant(
+        event_id=event.id,
+        name=decline_data.name,
+        location_name="",
+        is_host=False,
+        declined=True,
+    )
+
+    session.add(participant)
+    await session.commit()
+    await session.refresh(participant)
+
+    return participant
+
+
 @router.get("/{slug}/results", response_model=ResultsResponse)
 async def get_results(
     slug: str,
@@ -195,15 +233,18 @@ async def get_results(
         select(Participant).where(Participant.event_id == event.id)
     )
     participants = list(participants_result.scalars().all())
+
+    # Separate active from declined participants
+    active_participants = [p for p in participants if not p.declined]
     
-    if not participants:
+    if not active_participants:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="No participants have joined this event yet"
         )
     
-    # Get all availabilities
-    participant_ids = [p.id for p in participants]
+    # Get all availabilities (only for active participants)
+    participant_ids = [p.id for p in active_participants]
     availabilities_result = await session.execute(
         select(Availability).where(Availability.participant_id.in_(participant_ids))
     )
@@ -222,7 +263,7 @@ async def get_results(
     
     # Calculate suggested location (geometric median)
     suggested_location = None
-    centroid = calculate_centroid(participants)
+    centroid = calculate_centroid(active_participants)
     if centroid:
         # Label: find the participant whose location is closest to the median
         def dist(p: Participant) -> float:
@@ -230,7 +271,7 @@ async def get_results(
                 return float("inf")
             return ((p.lat - centroid["lat"]) ** 2 + (p.lng - centroid["lng"]) ** 2) ** 0.5
 
-        closest = min(participants, key=dist)
+        closest = min(active_participants, key=dist)
         neighborhood = closest.location_name
         suggested_location = SuggestedLocation(
             lat=centroid["lat"],
@@ -279,5 +320,5 @@ async def get_results(
         suggested_time=suggested_time,
         suggested_location=suggested_location,
         venue_recommendations=venue_recommendations,
-        total_participants=len(participants)
+        total_participants=len(active_participants)
     )

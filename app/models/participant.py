@@ -12,6 +12,7 @@ class Participant(SQLModel, table=True):
     event_id: UUID = Field(foreign_key="events.id", index=True)
     name: str = Field(max_length=100)
     is_host: bool = Field(default=False)
-    location_name: str = Field(max_length=200)
+    declined: bool = Field(default=False)
+    location_name: str = Field(max_length=200, default="")
     lat: Optional[float] = Field(default=None)
     lng: Optional[float] = Field(default=None)

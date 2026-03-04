@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { parseAsUTC } from '@/lib/date-utils';
-import { Calendar, MapPin, Users, CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react';
+import { Calendar, Users, CheckCircle2, XCircle, ArrowRight, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { TimeGridSelector } from '@/components/time-grid-selector';
 import { LocationCombobox } from '@/components/location-combobox';
-import { getEvent, joinEvent } from '@/lib/api';
+import { getEvent, joinEvent, declineEvent } from '@/lib/api';
 import type { Availability, ParticipantCreate } from '@/types';
 
 export default function EventPage({ params }: { params: { slug: string } }) {
@@ -27,7 +27,10 @@ export default function EventPage({ params }: { params: { slug: string } }) {
     const [location, setLocation] = useState('');
     const [availabilities, setAvailabilities] = useState<Availability[]>([]);
     const [hasJoined, setHasJoined] = useState(false);
+    const [hasDeclined, setHasDeclined] = useState(false);
     const [showTimeSlotError, setShowTimeSlotError] = useState(false);
+    const [showNameError, setShowNameError] = useState(false);
+    const nameInputRef = useRef<HTMLInputElement>(null);
 
     const { data: event, isLoading } = useQuery({
         queryKey: ['event', params.slug],
@@ -37,18 +40,26 @@ export default function EventPage({ params }: { params: { slug: string } }) {
     const joinMutation = useMutation({
         mutationFn: (data: ParticipantCreate) => joinEvent(params.slug, data),
         onSuccess: (data) => {
-            // Save participant ID to localStorage
             localStorage.setItem(`participant_${params.slug}`, data.id!);
             setHasJoined(true);
         },
     });
 
-    // Check if user has already joined
+    const declineMutation = useMutation({
+        mutationFn: () => declineEvent(params.slug, { name: name.trim() }),
+        onSuccess: (data) => {
+            localStorage.setItem(`declined_${params.slug}`, data.id!);
+            setHasDeclined(true);
+        },
+    });
+
+    // Check if user has already joined or declined
     useEffect(() => {
         const participantId = localStorage.getItem(`participant_${params.slug}`);
-        if (participantId) {
-            setHasJoined(true);
-        }
+        if (participantId) setHasJoined(true);
+
+        const declinedId = localStorage.getItem(`declined_${params.slug}`);
+        if (declinedId) setHasDeclined(true);
     }, [params.slug]);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -69,12 +80,24 @@ export default function EventPage({ params }: { params: { slug: string } }) {
         joinMutation.mutate(participantData);
     };
 
-    // Clear error when user selects time slots
-    useEffect(() => {
-        if (availabilities.length > 0) {
-            setShowTimeSlotError(false);
+    const handleDecline = () => {
+        if (!name.trim()) {
+            // Highlight the name field and focus it
+            setShowNameError(true);
+            nameInputRef.current?.focus();
+            return;
         }
+        declineMutation.mutate();
+    };
+
+    // Clear errors reactively
+    useEffect(() => {
+        if (availabilities.length > 0) setShowTimeSlotError(false);
     }, [availabilities]);
+
+    useEffect(() => {
+        if (name.trim()) setShowNameError(false);
+    }, [name]);
 
     if (isLoading) {
         return (
@@ -127,6 +150,32 @@ export default function EventPage({ params }: { params: { slug: string } }) {
         );
     }
 
+    if (hasDeclined) {
+        return (
+            <div className="min-h-screen bg-gradient-to-b from-red-50 to-white dark:from-gray-900 dark:to-gray-950">
+                <div className="container max-w-2xl mx-auto px-4 py-12">
+                    <Card className="text-center shadow-lg">
+                        <CardContent className="pt-8 pb-8">
+                            <XCircle className="h-16 w-16 text-red-400 mx-auto mb-4" />
+                            <h2 className="text-2xl font-bold mb-2">You're Out</h2>
+                            <p className="text-muted-foreground mb-6">
+                                You've declined the invitation to {event.title}. Hope to see you next time!
+                            </p>
+                            <Button
+                                variant="outline"
+                                onClick={() => router.push(`/e/${params.slug}/results`)}
+                                size="lg"
+                            >
+                                View Results
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
             <div className="container max-w-3xl mx-auto px-4 py-8">
@@ -144,7 +193,7 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                                     </div>
                                     <div className="flex items-center gap-1">
                                         <Users className="h-4 w-4" />
-                                        {event.participants.length} participant{event.participants.length !== 1 ? 's' : ''}
+                                        {event.participants.filter(p => !p.declined).length} participant{event.participants.filter(p => !p.declined).length !== 1 ? 's' : ''}
                                     </div>
                                 </div>
                             </div>
@@ -170,12 +219,20 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                                     </label>
                                     <Input
                                         id="name"
+                                        ref={nameInputRef}
                                         type="text"
                                         placeholder="John Doe"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         required
+                                        className={showNameError ? 'border-red-400 ring-1 ring-red-400 focus-visible:ring-red-400' : ''}
                                     />
+                                    {showNameError && (
+                                        <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
+                                            <AlertCircle className="h-3 w-3" />
+                                            Enter your name to let others know you can't make it
+                                        </p>
+                                    )}
                                 </div>
                                 <div>
                                     <label htmlFor="location" className="text-sm font-medium block mb-2">
@@ -199,7 +256,6 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                                     onSelectionChange={setAvailabilities}
                                 />
 
-                                {/* Modern error message */}
                                 {showTimeSlotError && (
                                     <div className="mt-3 p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900 rounded-lg flex items-start gap-2 animate-in slide-in-from-top-2 duration-300">
                                         <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
@@ -215,18 +271,37 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                                 )}
                             </div>
 
-                            <Button
-                                type="submit"
-                                className="w-full"
-                                size="lg"
-                                disabled={joinMutation.isPending}
-                            >
-                                {joinMutation.isPending ? 'Submitting...' : "I'm In!"}
-                            </Button>
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Button
+                                    type="submit"
+                                    className="flex-1"
+                                    size="lg"
+                                    disabled={joinMutation.isPending}
+                                >
+                                    {joinMutation.isPending ? 'Submitting...' : "I'm In! 🎉"}
+                                </Button>
+
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    size="lg"
+                                    className="sm:w-auto text-muted-foreground hover:text-destructive hover:border-red-300 hover:bg-red-50 dark:hover:bg-red-950/20"
+                                    onClick={handleDecline}
+                                    disabled={declineMutation.isPending}
+                                >
+                                    <XCircle className="mr-2 h-4 w-4" />
+                                    {declineMutation.isPending ? 'Sending...' : "I'm Out"}
+                                </Button>
+                            </div>
 
                             {joinMutation.isError && (
                                 <p className="text-sm text-destructive text-center">
                                     Failed to join event. Please try again.
+                                </p>
+                            )}
+                            {declineMutation.isError && (
+                                <p className="text-sm text-destructive text-center">
+                                    Failed to decline. Please try again.
                                 </p>
                             )}
                         </form>
@@ -234,25 +309,52 @@ export default function EventPage({ params }: { params: { slug: string } }) {
                 </Card>
 
                 {/* Participants List */}
-                {event.participants.length > 0 && (
+                {event.participants.filter(p => !p.declined).length > 0 && (
                     <Card className="mt-6">
                         <CardHeader>
                             <CardTitle className="text-lg">Who's Coming</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="flex flex-wrap gap-2">
-                                {event.participants.map((participant) => (
-                                    <Badge
-                                        key={participant.id}
-                                        variant="secondary"
-                                        className="flex items-center gap-1"
-                                    >
-                                        {participant.name}
-                                        {participant.is_host && (
-                                            <span className="text-xs">(Host)</span>
-                                        )}
-                                    </Badge>
-                                ))}
+                                {event.participants
+                                    .filter(p => !p.declined)
+                                    .map((participant) => (
+                                        <Badge
+                                            key={participant.id}
+                                            variant="secondary"
+                                            className="flex items-center gap-1"
+                                        >
+                                            {participant.name}
+                                            {participant.is_host && (
+                                                <span className="text-xs">(Host)</span>
+                                            )}
+                                        </Badge>
+                                    ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
+
+                {/* Decliners List */}
+                {event.participants.filter(p => p.declined).length > 0 && (
+                    <Card className="mt-4 border-red-100 dark:border-red-900/40">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="text-base text-muted-foreground">Who's Not Coming</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex flex-wrap gap-2">
+                                {event.participants
+                                    .filter(p => p.declined)
+                                    .map((participant) => (
+                                        <Badge
+                                            key={participant.id}
+                                            variant="outline"
+                                            className="flex items-center gap-1 text-muted-foreground border-red-200 dark:border-red-900"
+                                        >
+                                            <XCircle className="h-3 w-3 text-red-400" />
+                                            {participant.name}
+                                        </Badge>
+                                    ))}
                             </div>
                         </CardContent>
                     </Card>

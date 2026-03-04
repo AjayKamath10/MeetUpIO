@@ -31,6 +31,7 @@ class ParticipantBasic(BaseModel):
     name: str
     location_name: str
     is_host: bool
+    declined: bool = False
     
     class Config:
         from_attributes = True

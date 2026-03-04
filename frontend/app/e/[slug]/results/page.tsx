@@ -14,6 +14,7 @@ import {
     DollarSign,
     Star,
     ExternalLink,
+    XCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -251,38 +252,72 @@ export default function ResultsPage({ params }: { params: { slug: string } }) {
                 )}
 
                 {/* Participants Summary */}
-                {event && event.participants.length > 0 && (
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2">
-                                <Users className="h-5 w-5" />
-                                Who's Coming ({event.participants.length})
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                {event.participants.map((participant) => (
-                                    <div
-                                        key={participant.id}
-                                        className="flex items-center gap-2 p-3 bg-muted rounded-md"
-                                    >
-                                        <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold">
-                                            {participant.name.charAt(0).toUpperCase()}
+                {event && (() => {
+                    const coming = event.participants.filter(p => !p.declined);
+                    const notComing = event.participants.filter(p => p.declined);
+                    return (
+                        <>
+                            {coming.length > 0 && (
+                                <Card className="mb-4">
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center gap-2">
+                                            <Users className="h-5 w-5" />
+                                            Who's Coming ({coming.length})
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                            {coming.map((participant) => (
+                                                <div
+                                                    key={participant.id}
+                                                    className="flex items-center gap-2 p-3 bg-muted rounded-md"
+                                                >
+                                                    <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold">
+                                                        {participant.name.charAt(0).toUpperCase()}
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <div className="font-medium truncate">
+                                                            {participant.name}
+                                                        </div>
+                                                        <div className="text-xs text-muted-foreground truncate">
+                                                            {participant.location_name}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </div>
-                                        <div className="flex-1 min-w-0">
-                                            <div className="font-medium truncate">
-                                                {participant.name}
-                                            </div>
-                                            <div className="text-xs text-muted-foreground truncate">
-                                                {participant.location_name}
-                                            </div>
+                                    </CardContent>
+                                </Card>
+                            )}
+
+                            {notComing.length > 0 && (
+                                <Card className="border-red-100 dark:border-red-900/40">
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center gap-2 text-muted-foreground">
+                                            <XCircle className="h-5 w-5 text-red-400" />
+                                            Who's Not Coming ({notComing.length})
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="flex flex-wrap gap-2">
+                                            {notComing.map((participant) => (
+                                                <div
+                                                    key={participant.id}
+                                                    className="flex items-center gap-2 px-3 py-2 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/40 rounded-md"
+                                                >
+                                                    <div className="h-6 w-6 rounded-full bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-red-500 text-xs font-semibold">
+                                                        {participant.name.charAt(0).toUpperCase()}
+                                                    </div>
+                                                    <span className="text-sm text-muted-foreground">{participant.name}</span>
+                                                </div>
+                                            ))}
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                )}
+                                    </CardContent>
+                                </Card>
+                            )}
+                        </>
+                    );
+                })()}
 
                 {/* Call to Action */}
                 <div className="mt-8 text-center">

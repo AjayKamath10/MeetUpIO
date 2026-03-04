@@ -18,6 +18,11 @@ class ParticipantCreate(BaseModel):
     availabilities: List[AvailabilityInput] = Field(..., min_items=1)
 
 
+class DeclineCreate(BaseModel):
+    """Schema for declining an event invitation."""
+    name: str = Field(..., min_length=1, max_length=100)
+
+
 class ParticipantResponse(BaseModel):
     """Schema for participant response."""
     id: UUID
@@ -25,6 +30,7 @@ class ParticipantResponse(BaseModel):
     name: str
     location_name: str
     is_host: bool
+    declined: bool
     lat: Optional[float]
     lng: Optional[float]
     

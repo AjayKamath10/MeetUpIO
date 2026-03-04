@@ -25,6 +25,7 @@ export interface ParticipantBasic {
     name: string;
     location_name: string;
     is_host: boolean;
+    declined: boolean;
 }
 
 export interface Participant extends ParticipantBasic {
@@ -43,6 +44,10 @@ export interface ParticipantCreate {
     location_name: string;
     is_host?: boolean;
     availabilities: Availability[];
+}
+
+export interface DeclineCreate {
+    name: string;
 }
 
 // Results types

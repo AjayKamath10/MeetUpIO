@@ -4,6 +4,7 @@ import type {
     EventCreate,
     EventDetail,
     ParticipantCreate,
+    DeclineCreate,
     Participant,
     Results,
 } from '@/types';
@@ -35,6 +36,17 @@ export const joinEvent = async (
 ): Promise<Participant> => {
     const response = await apiClient.post<Participant>(
         `/api/events/${slug}/join`,
+        data
+    );
+    return response.data;
+};
+
+export const declineEvent = async (
+    slug: string,
+    data: DeclineCreate
+): Promise<Participant> => {
+    const response = await apiClient.post<Participant>(
+        `/api/events/${slug}/decline`,
         data
     );
     return response.data;
