@@ -22,6 +22,7 @@ export default function HomePage() {
     const [title, setTitle] = useState('');
     const [windowStart, setWindowStart] = useState<Date | undefined>();
     const [windowEnd, setWindowEnd] = useState<Date | undefined>();
+    const [dateError, setDateError] = useState<string | null>(null);
 
     // Calculate minimum end time (30 minutes after start time)
     const minEndDateTime = useMemo(() => {
@@ -34,6 +35,7 @@ export default function HomePage() {
     // Handle start time changes - auto-adjust end time if needed
     const handleStartChange = useCallback((newStart: Date | undefined) => {
         setWindowStart(newStart);
+        setDateError(null);
 
         if (newStart && windowEnd) {
             const minEnd = new Date(newStart);
@@ -46,6 +48,18 @@ export default function HomePage() {
         }
     }, [windowEnd]);
 
+    // Handle end time changes - guard against end being before start
+    const handleEndChange = useCallback((newEnd: Date | undefined) => {
+        if (newEnd && windowStart && newEnd <= windowStart) {
+            const minEnd = new Date(windowStart);
+            minEnd.setMinutes(minEnd.getMinutes() + 30);
+            setWindowEnd(minEnd);
+        } else {
+            setWindowEnd(newEnd);
+        }
+        setDateError(null);
+    }, [windowStart]);
+
     const createEventMutation = useMutation({
         mutationFn: createEvent,
         onSuccess: (data) => {
@@ -55,9 +69,15 @@ export default function HomePage() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setDateError(null);
 
         if (!windowStart || !windowEnd) {
-            alert('Please select start and end times');
+            setDateError('Please select start and end times.');
+            return;
+        }
+
+        if (windowEnd <= windowStart) {
+            setDateError('"Until" date must be after the "From" date.');
             return;
         }
 
@@ -156,7 +176,7 @@ export default function HomePage() {
                                     </label>
                                     <CustomDateTimePicker
                                         date={windowEnd}
-                                        setDate={setWindowEnd}
+                                        setDate={handleEndChange}
                                         label="End time"
                                         minDateTime={minEndDateTime}
                                     />
@@ -182,6 +202,12 @@ export default function HomePage() {
                             >
                                 {createEventMutation.isPending ? 'Creating...' : 'Start Planning →'}
                             </Button>
+
+                            {dateError && (
+                                <p className="text-sm text-destructive">
+                                    {dateError}
+                                </p>
+                            )}
 
                             {createEventMutation.isError && (
                                 <p className="text-sm text-destructive">
